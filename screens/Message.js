@@ -1,12 +1,13 @@
+
 import { Text } from "react-native";
-import { View } from "react-native";
+
 
 const Message = () => {
-    return ( 
-        <View>
-            <Text>Messages</Text>
-        </View>
-     );
+
+    return (
+        <Text>Message</Text>
+
+    );
 }
- 
+
 export default Message;
