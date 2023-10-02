@@ -47,7 +47,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator initialRouteName='Home' backBehavior={'initialRoute'} screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: 'black'
       }}>
         <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarIcon: ({ focused, color, size }) => (

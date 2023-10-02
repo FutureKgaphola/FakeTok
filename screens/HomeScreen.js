@@ -6,13 +6,14 @@ import { ResizeMode } from 'expo-av'
 import VideoPlayer from 'expo-video-player'
 
 export default function HomeScreen({ navigation }) {
-  const { height, width } = Dimensions.get('window');
+
+  
   const renderItems = ({ item }) => (
-    <View style={{ backgroundColor: 'yellow', width: Dimensions.get('window').width, height: Dimensions.get('window').height }}>
+    <View style={{ width: Dimensions.get('window').width}}>
       <VideoPlayer
         videoProps={{
           shouldPlay: false,
-          resizeMode: ResizeMode.COVER,
+          resizeMode: ResizeMode.CONTAIN,
           // ❗ source is required https://docs.expo.io/versions/latest/sdk/video/#props
           source: {
             uri: item.vidurl,
@@ -25,13 +26,15 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <FlatList
         data={data}
+        initialNumToRender={1}
         keyExtractor={(item) => item.id}
         renderItem={renderItems}
         snapToAlignment="start"
         decelerationRate={"fast"}
         snapToInterval={Dimensions.get("window").height}
-        onScrollBeginDrag={() => console.log("start")}
-        onScrollEndDrag={() => console.log("end")}
+        snapToEnd={false}
+        style={{paddingBottom:70}}
+        
       />
     </View>
 
@@ -40,8 +43,7 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
